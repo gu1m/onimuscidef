@@ -50,8 +50,6 @@ if indi_geral == "Individual":
     col1.metric("Total de músicas", total_musicas)
     col3.metric("Número de artistas", total_artistas)
     
-    st.header("Dados Individuais do Artista Selecionado")
-    
     # colocando area de digitação para o usuario digitar a musica ou o artista para ser analisado
     keyword = st.text_input(selecionado)
     clicado = st.button("search")
@@ -61,6 +59,7 @@ if indi_geral == "Individual":
     if keyword is not None and len(str(keyword)) > 0:
         # se o usuario escolher para analisar musica 
         if selecionado == "Música":
+            st.header("Dados individuais da música selceionada")
             st.write("Música pesquisada")
             dado = dataset.loc[dataset["track_name"].isin ([keyword])]
             st.write(dado)
@@ -90,10 +89,6 @@ if indi_geral == "Individual":
         # se o usuario escolher para analisar artista
         elif selecionado == "Artista":
             st.header("Dados Individuais do Artista Selecionado")
-            
-            total_musicas2 = len(dataset.loc[dataset["track_name"].isin([keyword])])
-            col111 = st.columns(1)
-            col111.metric("Total de músicas do Artista", total_musicas2)
             
             st.write("Artista pesquisado")
             dado = dataset.loc[dataset["artist_name"].isin ([keyword])]
