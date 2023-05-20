@@ -130,67 +130,67 @@ if indi_geral == "Individual":
                         st.write("O gênero músical usado nesta música foi:")
                         st.write(genre)
 
-        st.markdown("""---""")
-
-        # Gráficos do artista 
-        st.subheader("Gráficos e dados gerais do artista")
-
-
-
-        # realizando os graficos individuais do artista
-        data1 = dataset.loc[dataset["artist_name"].isin ([keyword])]
-
-        # neste histograma pode-se perceber o numero de musicas em correlação a popularidade
-        fig07 =px.histogram(data1, x="popularity", nbins=15)
-
-        # neste plotbox pode ver a correlação de tempo ritmico e popularidade 
-        fig08 = px.box(data1, x='time_signature', y='popularity', color='time_signature')
-
-        # neste plotbox pode ver a correlação de tom e popularidade 
-        fig09 = px.box(data1, x='key', y='popularity', color='key')
-
-        #neste plotbox pode ver o modo muscial em correlação com a popularidade 
-        fig10 = px.box(data1, x='mode', y='popularity', color='mode')
-
-        # nesta matriz é apresentado a correlação entre os dados do dataframe
-        fig11 = data1.corr(numeric_only = True)
-
-        # aqui colocamos na variavel data1 a musica mais famosa do artista selecionado
-        data1 = data1.nlargest(1, 'popularity')[["track_name","popularity"]]
-        st.write("A música mais famosa do artista selecionado é", data1)
-
-        st.markdown("""---""")
-        #graficos em relação ao artista
-        col0,col00 = st.columns(2)
-
-        # aqui plotamos os graficos de fato no dashboard de forma organizada 
-        with col0:
-            fig07.update_layout(title='Relação ao número de músicas para cada popularidade')
-            st.write(fig07)
-            st.write("""O grafico a seguir mostra a a relação de popularidade que vai de 0 a 100 as musicas do artista""")
-
-        with col00:
-            fig08.update_layout(title='Relação a tempo ritmico e  popularidade')
-            st.write(fig08)
-            st.write("""O gráfico a seguir mostra a a relação de popularidade e tempo ritmico(velocidade da música)""")
             st.markdown("""---""")
-        
-        col99, col90 = st.columns(2)
 
-        with col99:
-            fig09.update_layout(title='Relação a key e a popularidade')
-            st.write(fig09)
-            st.write("""O gráfico a seguir mostra a a relação de  key e a popularidade""")
+            # Gráficos do artista 
+            st.subheader("Gráficos e dados gerais do artista")
 
-        with col90:
-            fig10.update_layout(title='Relação entre o mode e a popularidade')
-            st.write(fig10)
-            st.write("""O gráfico a seguir mostra a a relação entre o mode e a popularidade""")
-            st.markdown("""---""")   
 
-        fig11.style.background_gradient(cmap='cividis')
-        st.write("Matriz de Correlação entre os dados do Dataframe")
-        st.write(fig11)
+
+            # realizando os graficos individuais do artista
+            data1 = dataset.loc[dataset["artist_name"].isin ([keyword])]
+
+            # neste histograma pode-se perceber o numero de musicas em correlação a popularidade
+            fig07 =px.histogram(data1, x="popularity", nbins=15)
+
+            # neste plotbox pode ver a correlação de tempo ritmico e popularidade 
+            fig08 = px.box(data1, x='time_signature', y='popularity', color='time_signature')
+
+            # neste plotbox pode ver a correlação de tom e popularidade 
+            fig09 = px.box(data1, x='key', y='popularity', color='key')
+
+            #neste plotbox pode ver o modo muscial em correlação com a popularidade 
+            fig10 = px.box(data1, x='mode', y='popularity', color='mode')
+
+            # nesta matriz é apresentado a correlação entre os dados do dataframe
+            fig11 = data1.corr(numeric_only = True)
+
+            # aqui colocamos na variavel data1 a musica mais famosa do artista selecionado
+            data1 = data1.nlargest(1, 'popularity')[["track_name","popularity"]]
+            st.write("A música mais famosa do artista selecionado é", data1)
+
+            st.markdown("""---""")
+            #graficos em relação ao artista
+            col0,col00 = st.columns(2)
+
+            # aqui plotamos os graficos de fato no dashboard de forma organizada 
+            with col0:
+                fig07.update_layout(title='Relação ao número de músicas para cada popularidade')
+                st.write(fig07)
+                st.write("""O grafico a seguir mostra a a relação de popularidade que vai de 0 a 100 as musicas do artista""")
+
+            with col00:
+                fig08.update_layout(title='Relação a tempo ritmico e  popularidade')
+                st.write(fig08)
+                st.write("""O gráfico a seguir mostra a a relação de popularidade e tempo ritmico(velocidade da música)""")
+                st.markdown("""---""")
+
+            col99, col90 = st.columns(2)
+
+            with col99:
+                fig09.update_layout(title='Relação a key e a popularidade')
+                st.write(fig09)
+                st.write("""O gráfico a seguir mostra a a relação de  key e a popularidade""")
+
+            with col90:
+                fig10.update_layout(title='Relação entre o mode e a popularidade')
+                st.write(fig10)
+                st.write("""O gráfico a seguir mostra a a relação entre o mode e a popularidade""")
+                st.markdown("""---""")   
+
+            fig11.style.background_gradient(cmap='cividis')
+            st.write("Matriz de Correlação entre os dados do Dataframe")
+            st.write(fig11)
             
 
 
