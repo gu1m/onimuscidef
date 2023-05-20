@@ -54,6 +54,7 @@ if indi_geral == "Individual":
     # colocando area de digitação para o usuario digitar a musica ou o artista para ser analisado
     keyword = st.text_input(selecionado)
     clicado = st.button("search")
+    st.markdown("""---""")
     
     # aqui o programa ira verificar se o nome digitado é menor que 0
     if keyword is not None and len(str(keyword)) > 0:
@@ -130,7 +131,7 @@ if indi_geral == "Individual":
             # aqui colocamos na variavel data1 a musica mais famosa do artista selecionado
             data1 = data1.nlargest(1, 'popularity')[["track_name","popularity"]]
             st.write("A música mais famosa do artista selecionado é", data1)
-            
+            st.markdown("""---""")
             #graficos em relação ao artista
             col0,col00 = st.columns(2)
             
