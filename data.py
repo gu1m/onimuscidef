@@ -123,7 +123,7 @@ if indi_geral == "Individual":
             fig09 = px.box(data1, x='key', y='popularity', color='key')
             
             #neste plotbox pode ver o modo muscial em correlação com a popularidade 
-            fig10 = px.box(dataset, x='mode', y='popularity', color='mode')
+            fig10 = px.box(data1, x='mode', y='popularity', color='mode')
             
             # nesta matriz é apresentado a correlação entre os dados do dataframe
             fig11 = data1.corr(numeric_only = True)
