@@ -147,14 +147,16 @@ elif indi_geral == "Geral":
     col1.metric("Total de músicas", total_musicas)
     col3.metric("Número de artistas", total_artistas)
     
+     st.markdown("""---""")
+    
     st.write("""Vendo o tipo de dados que serão análisados""")
     st.write(dataset.head())
-
+    
     # vendo qual o artista mais popular no dataframe
     st.write("""Depois de análisar o dataset é possivel perceber que a/o artista mais famosa é a/o""")
     dataset.nlargest(1, 'popularity')[['track_name','artist_name',"popularity"]]
 
-
+     st.markdown("""---""")
     # começando a plotar os graficos
     col01, col02 = st.columns(2)
    
