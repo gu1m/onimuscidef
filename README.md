@@ -1,8 +1,8 @@
-   Este projeto foi realizado para analisar os dados de um dataframe do Spotify:
+   Este projeto foi realizado para análisar os dados de um dataframe do Spotify:
 
    O link do app: https://gu1m-onimuscidef-data-xz9v9c.streamlit.app/ 
    
-   a explicação do uso de cada gráfico esta no arquivo do jupyternotebook e a explicação da logica para a realização do app esta descrita no arquivo data.py 
+   a explicação do uso de cada gráfico esta no arquivo do jupyternotebook e a explicação da lógica para a realização do app está descrita no arquivo data.py e o dataframe pode ser baixado pelo arquivo Spotify.csv
 
 
 
