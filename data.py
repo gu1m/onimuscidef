@@ -73,10 +73,12 @@ if indi_geral == "Individual":
             st.header("Dados Individuais do Artista Selecionado")
 
             st.write("Artista pesquisado")
-            dado = dataset.loc[dataset["artist_name"].isin ([keyword])]
-            if dado.iloc[0] == None:
+            
+            if dataset.loc[dataset["artist_name"].isnotin ([keyword])]:
                 st.write("cantor não catalogado")
-            else:
+            elif dataset.loc[dataset["artist_name"].isin ([keyword])]:
+                
+                dado = dataset.loc[dataset["artist_name"].isin ([keyword])]
                 st.write(dado)
 
                 # realizando as estatisicas do artista 
