@@ -68,56 +68,56 @@ if indi_geral == "Individual":
         
         # se o usuario escolher para analisar artista
         elif selecionado == "Artista":
-         
-            st.header("Dados Individuais do Artista Selecionado")
+            if keyword is not in dataset["artist_name"]:
+                st.header("Dados Individuais do Artista Selecionado")
 
-            st.write("Artista pesquisado")
-            dado = dataset.loc[dataset["artist_name"].isin ([keyword])]
-            st.write(dado)
+                st.write("Artista pesquisado")
+                dado = dataset.loc[dataset["artist_name"].isin ([keyword])]
+                st.write(dado)
 
-            # realizando as estatisicas do artista 
-            media_pop = round(sts.mean(dado["popularity"]),2)
-            media_ene = round(sts.mean(dado["energy"]),2)
-            moda_mode = sts.mode(dado["mode"])
+                # realizando as estatisicas do artista 
+                media_pop = round(sts.mean(dado["popularity"]),2)
+                media_ene = round(sts.mean(dado["energy"]),2)
+                moda_mode = sts.mode(dado["mode"])
 
-            # deixando a interface mais amigavel
-            col10,col22,col33 = st.columns(3)
-            col10.metric("Média de Popularidade do Artista", media_pop)
-            col22.metric("Média de Energia", media_ene)
-            col33.metric("Escala musical mais usada", moda_mode)
+                # deixando a interface mais amigavel
+                col10,col22,col33 = st.columns(3)
+                col10.metric("Média de Popularidade do Artista", media_pop)
+                col22.metric("Média de Energia", media_ene)
+                col33.metric("Escala musical mais usada", moda_mode)
 
-            col222 = st.columns(1)
+                col222 = st.columns(1)
 
-            # vendo qual é o gênero mais utilizado pelo o artista
-            moda_gen = sts.mode(dado["genres"])
-            st.write("O gênero mais utilizado por este artista é:")
-            st.write(moda_gen)
+                # vendo qual é o gênero mais utilizado pelo o artista
+                moda_gen = sts.mode(dado["genres"])
+                st.write("O gênero mais utilizado por este artista é:")
+                st.write(moda_gen)
 
-            st.markdown("""---""")
+                st.markdown("""---""")
 
-            # espaço para o usuario pesquisar uma música dentro dos dados do artista selecionado
-            keyword2 = st.text_input("Digite o nome da música do artista selecionado")
-            clicado2 = st.button("search ")
+                # espaço para o usuario pesquisar uma música dentro dos dados do artista selecionado
+                keyword2 = st.text_input("Digite o nome da música do artista selecionado")
+                clicado2 = st.button("search ")
 
-                # verificando se há algo escrito no espaço para digitar
-            if keyword2 is not None and len(str(keyword2)) > 0:
-                # encontrando o nome da música nos dados do Artista
-                dado_music = dado.loc[dado["track_name"].isin ([keyword2])]
-                st.write(dado_music)
+                    # verificando se há algo escrito no espaço para digitar
+                if keyword2 is not None and len(str(keyword2)) > 0:
+                    # encontrando o nome da música nos dados do Artista
+                    dado_music = dado.loc[dado["track_name"].isin ([keyword2])]
+                    st.write(dado_music)
 
-                # pegando as informações da música
-                pop_mu = sts.mode(dado_music["popularity"])
-                dance  = sts.mode(dado_music["danceability"])
-                genre = sts.mode (dado_music["genres"])
+                    # pegando as informações da música
+                    pop_mu = sts.mode(dado_music["popularity"])
+                    dance  = sts.mode(dado_music["danceability"])
+                    genre = sts.mode (dado_music["genres"])
 
-                # deixando as informções mais visiveis para o usúario
-                col111,col222,col333 = st.columns(3)
-                col111.metric("A popularidade desta música é:", pop_mu)
-                col222.metric("A danceabilidade desta música é de:", dance)
+                    # deixando as informções mais visiveis para o usúario
+                    col111,col222,col333 = st.columns(3)
+                    col111.metric("A popularidade desta música é:", pop_mu)
+                    col222.metric("A danceabilidade desta música é de:", dance)
 
-                with col333:
-                    st.write("O gênero músical usado nesta música foi:")
-                    st.write(genre)
+                    with col333:
+                        st.write("O gênero músical usado nesta música foi:")
+                        st.write(genre)
 
         st.markdown("""---""")
 
