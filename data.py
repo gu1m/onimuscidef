@@ -146,6 +146,8 @@ elif indi_geral == "Geral":
     col1,col2,col3 = st.columns(3)
     col1.metric("Total de músicas", total_musicas)
     col3.metric("Número de artistas", total_artistas)
+    
+    st.write("""Vendo o tipo de dados que serão análisados""")
     st.write(dataset.head())
 
     # vendo qual o artista mais popular no dataframe
