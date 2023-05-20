@@ -74,7 +74,7 @@ if indi_geral == "Individual":
 
             st.write("Artista pesquisado")
             dado = dataset.loc[dataset["artist_name"].isin ([keyword])]
-            if dado["artist_name"].isnull().sum() == none:
+            if dado["artist_name"].isnull().sum() == None:
                 st.write("cantor não catalogado")
             else:
                 st.write(dado)
