@@ -91,7 +91,7 @@ if indi_geral == "Individual":
         elif selecionado == "Artista":
             st.header("Dados Individuais do Artista Selecionado")
             
-            total_musicas2 = len(dataset.loc[dataset["track_name"].isin([keyword]))
+            total_musicas2 = len(dataset.loc[dataset["track_name"].isin([keyword])])
             col111 = st.columns(1)
             col111.metric("Total de músicas do Artista", total_musicas2)
             
