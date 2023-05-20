@@ -51,6 +51,8 @@ if indi_geral == "Individual":
     col1.metric("Total de músicas", total_musicas)
     col3.metric("Número de artistas", total_artistas)
     
+     st.header("Dados Individuais do Artista Selecionado")
+    
     # colocando area de digitação para o usuario digitar a musica ou o artista para ser analisado
     keyword = st.text_input(selecionado)
     clicado = st.button("search")
