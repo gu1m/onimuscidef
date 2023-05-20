@@ -94,8 +94,8 @@ if indi_geral == "Individual":
             clicado2 = st.button("search ")
             
             if keyword2 is not None and len(str(keyword2)) > 0:
-                dado2 = dado.loc[dado["track_name"].isin ([keyword2])]
-                st.write(dado)
+                dado_music = dado.loc[dado["track_name"].isin ([keyword2])]
+                st.write(dado_music)
                     
                 pop_mu = sts.mode(dado_music["popularity"])
                 dance  = sts.mode(dado_music["danceability"])
