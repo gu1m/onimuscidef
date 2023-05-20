@@ -59,32 +59,10 @@ if indi_geral == "Individual":
     if keyword is not None and len(str(keyword)) > 0:
         # se o usuario escolher para analisar musica 
         if selecionado == "Música":
-            st.header("Dados individuais da música selecionada")
+            st.header("Dados da música selecionada")
             st.write("Música pesquisada")
             dado = dataset.loc[dataset["track_name"].isin ([keyword])]
             st.write(dado)
-            
-            # vendo a popularidade 
-            col123,col234,col345 = st.columns(3)
-            
-            
-            m = sts.mode(dado["popularity"])
-            col123.metric("A popularidade desta música é:", m)
-            
-            m1 = sts.mode(dado["danceability"])
-            col234.metric("A danceabilidade desta música é:", m1)
-            
-            m2 = sts.mode(dado["energy"])
-            col345.metric("A energia desta música é:", m2)
-            
-            st.markdown("""---""")
-            col567,col678= st.columns(2)
-            
-            m3 = sts.mode(dado["mode"])
-            col567.metric("A escala músical mais usada é:", m3)
-            
-            m4 = sts.mode(dado["key"])
-            col678.metric("O tom mais usado nesta música é:", m4)
        
         # se o usuario escolher para analisar artista
         elif selecionado == "Artista":
@@ -93,6 +71,10 @@ if indi_geral == "Individual":
             st.write("Artista pesquisado")
             dado = dataset.loc[dataset["artist_name"].isin ([keyword])]
             st.write(dado)
+            
+            keyword2 = st.text_input(selecionado)
+            clicado2 = st.button("search")
+            
             
             # realizando as estatisicas do artista 
             media_pop = round(sts.mean(dado["popularity"]),2)
