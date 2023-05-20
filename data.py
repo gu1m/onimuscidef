@@ -180,7 +180,7 @@ elif indi_geral == "Geral":
     dataset.nlargest(1, 'popularity')[['track_name','artist_name',"popularity"]]
     
     # vendo qual gênero músical mais ouvido
-    moda_genre = sts.mode([dataset["genres"])
+    moda_genre = sts.mode(dataset["genres"])
     st.write("O gênero músical mais ouvido é:")
     st.write(moda_genre)
 
