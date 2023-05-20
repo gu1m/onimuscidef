@@ -41,9 +41,9 @@ selecionado = st.sidebar.selectbox("Pesquisar dados sobre (somente usado no modo
 if indi_geral == "Individual":
     
     # visualizando o total de musicas e artistas no dataframe
-    #total_musicas = len(dataset["track_name"])
-    #data = dataset.drop_duplicates(subset="artist_name", keep='first')
-    #total_artistas = len(data["artist_name"])
+    total_musicas = len(dataset["track_name"])
+    data = dataset.drop_duplicates(subset="artist_name", keep='first')
+    total_artistas = len(data["artist_name"])
 
     # colocando na interface o numero de artistas e musicas no dataframe
     col1,col2,col3 = st.columns(3)
