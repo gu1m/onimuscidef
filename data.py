@@ -186,7 +186,7 @@ elif indi_geral == "Geral":
     st.write(dataset.head())
     
     # vendo qual o artista mais popular no dataframe
-    st.write("""Depois de análisar o dataset é possivel perceber que a/o artista mais famosa é a/o""")
+    st.write("""Depois de análisar o dataset é possivel perceber que a música mais famosa é a""")
     dataset.nlargest(1, 'popularity')[['track_name','artist_name',"popularity"]]
     
     # vendo qual gênero músical mais presente no Dataframe
