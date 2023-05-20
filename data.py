@@ -14,6 +14,7 @@ import statistics as sts
 # importando o arquivo csv 
 dataset = pd.read_csv("Spotify.csv")
 
+
 # deixando o front do app com uma interface amigave1
 st.set_page_config(
     page_title="Dataframe Spotify",
