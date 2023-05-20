@@ -80,7 +80,7 @@ if indi_geral == "Individual":
                 st.write("cantor não catalogado")
             elif dado == True:
                 
-                dado = dataset.loc[dataset.["artist_name"].isin ([keyword])]
+                dado = dataset.loc[dataset["artist_name"].isin ([keyword])]
                 st.write(dado)
 
                 # realizando as estatisicas do artista 
