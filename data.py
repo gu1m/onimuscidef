@@ -32,7 +32,7 @@ opcoes = ["Geral","Individual"]
 indi_geral = st.sidebar.selectbox("Escolha quais dados serão analisados", opcoes)
 
 # segundo item da side bar (visualização dos dados músicais ou dos artistas)
-opções = ["Música", "Artista"]
+opções = ["Artista", "Música"]
 selecionado = st.sidebar.selectbox("Pesquisar dados sobre (somente usado no modo individual)", opções)
 
 # aqui se o usuario tera que escolher entre Individual ou Geral no primeiro item da sidebar
