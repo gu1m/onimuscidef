@@ -72,9 +72,24 @@ if indi_geral == "Individual":
             dado = dataset.loc[dataset["artist_name"].isin ([keyword])]
             st.write(dado)
             
-            keyword2 = st.text_input(selecionado)
+            keyword2 = st.text_input("Digite o nome da música do artista selecionado")
             clicado2 = st.button("search")
             
+            if keyword2 is not None and len(str(keyword2)) > 0:
+                if keyword2 in dado["track_name"]:
+                    dado_music = dado.loc[dado["track_name"].isin ([keyword2])]
+                    st.write(dado_music)
+                    
+                    pop_mu = sts.mode(dado_music["popularity"])
+                    dance  = sts.mode(dado_music["danceability"])
+                    genre = sts.mode (dado_music["genres"])
+                    col111,col222,col333 = st.columns(3)
+                    
+                    col111.metric("A popularidade desta música é:", pop_mu)
+                    col222.metric("A danceabilidade desta música é de:", dance)
+                    col333.metric("O gênero desta música é:", st.write(genre))
+                    
+                    
             
             # realizando as estatisicas do artista 
             media_pop = round(sts.mean(dado["popularity"]),2)
