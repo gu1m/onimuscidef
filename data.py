@@ -234,4 +234,7 @@ elif indi_geral == "Geral":
         st.write("Matriz de Correlação entre os dados do Dataframe")
         st.write(fig11)
         st.write("""Este gráfico apresenta a dependência entre os dados do gráfico em relação a eles mesmos""")
+        
+    fig33 = px.histogram(dataset, x="genres")
+    fig33.update_layout("Este gráfico representa a o total de músicas para cada gênero músical")
     
