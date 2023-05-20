@@ -103,7 +103,10 @@ if indi_geral == "Individual":
                 col111,col222,col333 = st.columns(3)
                 col111.metric("A popularidade desta música é:", pop_mu)
                 col222.metric("A danceabilidade desta música é de:", dance)
-                col333.metric("O gênero desta música é:", st.write(genre))
+                
+                with col333:
+                    st.write("O gênero músical usado nesta música foi")
+                    st.write(genre)
             
             # realizando os graficos individuais do artista
             data1 = dataset.loc[dataset["artist_name"].isin ([keyword])]
