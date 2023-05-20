@@ -23,7 +23,7 @@ st.set_page_config(
 )
 st.header("Dataframe Spotify")
 
- st.markdown("""---""")
+st.markdown("""---""")
 
 # fazendo uma sidebar para melhor visualização dos dados
 
