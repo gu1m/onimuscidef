@@ -66,9 +66,23 @@ if indi_geral == "Individual":
             # vendo a popularidade 
             col123,col234,col345 = st.columns(3)
             
-            with col123:
-                st.write(dado["popularity"])
-        
+            
+            m = sts.mode(dado["popularity"])
+            col123.metric("A popularidade desta música é", m)
+            
+            m1 = sts.mode(dado["danceability"])
+            col234.metric("A danceabilidade desta música é", m1)
+            
+            m2 = sts.mode(dado["energy"])
+            col345.metric("A energia desta música é", m2)
+            
+            col567,col678= st.columns(2)
+            
+            m3 = sts.mode(dado["mode"])
+            col567.metric("A escala músical mais usada é", m3)
+            
+            m4 = sts.mode(dado["key"])
+            col678.metric("O tom mais usado nesta música é", m4)
        
         # se o usuario escolher para analisar artista
         elif selecionado == "Artista":
