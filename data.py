@@ -90,6 +90,7 @@ if indi_geral == "Individual":
             st.write("O gênero mais utilizado por este artista é:")
             st.write(moda_gen)
             
+            st.markdown("""---""")
             
             keyword2 = st.text_input("Digite o nome da música do artista selecionado")
             clicado2 = st.button("search ")
