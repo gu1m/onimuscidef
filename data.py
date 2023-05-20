@@ -62,6 +62,12 @@ if indi_geral == "Individual":
             st.write("Música pesquisada")
             dado = dataset.loc[dataset["track_name"].isin ([keyword])]
             st.write(dado)
+            
+            # vendo a popularidade 
+            col123,col234,col345 = st.columns(3)
+            
+            with col123:
+                st.write(dado["popularity"])
         
        
         # se o usuario escolher para analisar artista
