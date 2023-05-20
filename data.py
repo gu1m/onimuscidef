@@ -55,7 +55,7 @@ if indi_geral == "Individual":
     clicado = st.button("search")
     st.markdown("""---""")
     
-    # aqui o programa ira verificar se o nome digitado é menor que 0
+    # verificando se há algo escrito no espaço para digitar
     if keyword is not None and len(str(keyword)) > 0:
         # se o usuario escolher para analisar musica 
         if selecionado == "Música":
@@ -92,16 +92,22 @@ if indi_geral == "Individual":
             
             st.markdown("""---""")
             
+            # espaço para o usuario pesquisar uma música dentro dos dados do artista selecionado
             keyword2 = st.text_input("Digite o nome da música do artista selecionado")
             clicado2 = st.button("search ")
             
+            # verificando se há algo escrito no espaço para digitar
             if keyword2 is not None and len(str(keyword2)) > 0:
+                # encontrando o nome da música nos dados do Artista
                 dado_music = dado.loc[dado["track_name"].isin ([keyword2])]
                 st.write(dado_music)
-                    
+                
+                # pegando as informações da música
                 pop_mu = sts.mode(dado_music["popularity"])
                 dance  = sts.mode(dado_music["danceability"])
                 genre = sts.mode (dado_music["genres"])
+                
+                # deixando as informções mais visiveis para o usúario
                 col111,col222,col333 = st.columns(3)
                 col111.metric("A popularidade desta música é:", pop_mu)
                 col222.metric("A danceabilidade desta música é de:", dance)
@@ -111,6 +117,8 @@ if indi_geral == "Individual":
                     st.write(genre)
             
             st.markdown("""---""")
+            
+            # Gráficos do artista 
             st.subheader("Gráficos e dados gerais do artista")
             
             
