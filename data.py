@@ -90,6 +90,10 @@ if indi_geral == "Individual":
             st.write("O gênero mais utilizado por este artista é:")
             st.write(moda_gen)
             
+            # aqui colocamos na variavel data1 a musica mais famosa do artista selecionado
+            data1 = data1.nlargest(1, 'popularity')[["track_name","popularity"]]
+            st.write("A música mais famosa do artista selecionado é", data1)
+            
             keyword2 = st.text_input("Digite o nome da música do artista selecionado")
             clicado2 = st.button("search ")
             
@@ -127,10 +131,7 @@ if indi_geral == "Individual":
             
             # nesta matriz é apresentado a correlação entre os dados do dataframe
             fig11 = data1.corr(numeric_only = True)
-            
-            # aqui colocamos na variavel data1 a musica mais famosa do artista selecionado
-            data1 = data1.nlargest(1, 'popularity')[["track_name","popularity"]]
-            st.write("A música mais famosa do artista selecionado é", data1)
+
             st.markdown("""---""")
             #graficos em relação ao artista
             col0,col00 = st.columns(2)
