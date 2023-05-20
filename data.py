@@ -59,7 +59,7 @@ if indi_geral == "Individual":
     # verificando se há algo escrito no espaço para digitar
     if keyword is not None and len(str(keyword)) > 0:
         # se o usuario escolher para analisar musica
-         
+        dado = dataset.loc[dataset["track_name"].isin ([keyword])]
         if selecionado == "Música":
             if dado.empty:
                 st.subheader("Música não catalogada")
