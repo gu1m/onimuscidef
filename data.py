@@ -73,12 +73,12 @@ if indi_geral == "Individual":
             st.write(dado)
             
             keyword2 = st.text_input("Digite o nome da música do artista selecionado")
-            clicado2 = st.button("search.")
+            clicado2 = st.button("search")
             
             if keyword2 is not None and len(str(keyword2)) > 0:
                 if keyword2 in dataset["track_name"]:
                     dado_music = dado.loc[dado["track_name"].isin ([keyword2])]
-                    st.write(dado)
+                    st.write(dado_music)
                     
                     pop_mu = sts.mode(dado_music["popularity"])
                     dance  = sts.mode(dado_music["danceability"])
