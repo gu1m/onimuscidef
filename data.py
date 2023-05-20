@@ -68,7 +68,7 @@ if indi_geral == "Individual":
         
         # se o usuario escolher para analisar artista
         elif selecionado == "Artista":
-            if keyword is not in dataset["artist_name"]:
+            if keyword not in dataset["artist_name"]:
                 st.header("Dados Individuais do Artista Selecionado")
 
                 st.write("Artista pesquisado")
