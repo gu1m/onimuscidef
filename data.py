@@ -76,9 +76,9 @@ if indi_geral == "Individual":
             
             dado = dataset.loc[dataset["artist_name"].isin ([keyword])]
             
-            if dado.all() == None:
+            if dado.empty:
                 st.write("cantor não catalogado")
-            elif dado.all() == True:
+            else:
                 
                 dado = dataset.loc[dataset["artist_name"].isin ([keyword])]
                 st.write(dado)
