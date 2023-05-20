@@ -102,6 +102,10 @@ if indi_geral == "Individual":
             col22.metric("Média de Energia", media_ene)
             col33.metric("Escala musical mais usada", moda_mode)
             
+            col222 = st.columns(1)
+            
+            col222.metric("O gênero mais utilizado por este artista é", sts.mode(dado["genres"]))
+            
             # realizando os graficos individuais do artista
             data1 = dataset.loc[dataset["artist_name"].isin ([keyword])]
             
