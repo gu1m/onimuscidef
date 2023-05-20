@@ -179,9 +179,9 @@ elif indi_geral == "Geral":
     st.write("""Depois de análisar o dataset é possivel perceber que a/o artista mais famosa é a/o""")
     dataset.nlargest(1, 'popularity')[['track_name','artist_name',"popularity"]]
     
-    # vendo qual gênero músical mais ouvido
+    # vendo qual gênero músical mais presente no Dataframe
     moda_genre = sts.mode(dataset["genres"])
-    st.write("O gênero músical mais ouvido é:")
+    st.write("O gênero músical mais presente é:")
     st.write(moda_genre)
 
     st.markdown("""---""")
