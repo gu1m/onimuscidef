@@ -66,13 +66,17 @@ if indi_geral == "Individual":
             dado = dataset.loc[dataset["track_name"].isin ([keyword])]
             st.write(dado)
         
+        
         # se o usuario escolher para analisar artista
         elif selecionado == "Artista":
-            for keyword in dataset["artist_name"]:
-                st.header("Dados Individuais do Artista Selecionado")
+         
+            st.header("Dados Individuais do Artista Selecionado")
 
-                st.write("Artista pesquisado")
-                dado = dataset.loc[dataset["artist_name"].isin ([keyword])]
+            st.write("Artista pesquisado")
+            dado = dataset.loc[dataset["artist_name"].isin ([keyword])]
+            if dado.isnull().sum() > 0:
+                st.write("cantor não catalogado")
+            else:
                 st.write(dado)
 
                 # realizando as estatisicas do artista 
