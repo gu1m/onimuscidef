@@ -236,5 +236,7 @@ elif indi_geral == "Geral":
         st.write("""Este gráfico apresenta a dependência entre os dados do gráfico em relação a eles mesmos""")
         
     fig33 = px.histogram(dataset, x="genres")
-    fig33.update_layout("Este gráfico representa a o total de músicas para cada gênero músical")
+    fig33.update_layout(title="Total de músicas para cada gênero")
+    st.write(fig33)
+    st.write("Este gráfico representa a o total de músicas para cada gênero músical")
     
