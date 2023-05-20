@@ -59,9 +59,8 @@ if indi_geral == "Individual":
     # verificando se há algo escrito no espaço para digitar
     if keyword is not None and len(str(keyword)) > 0:
         # se o usuario escolher para analisar musica
-        if keyword not in dataset:
-            st.write("não catalogado")
-        elif selecionado == "Música":
+         
+        if selecionado == "Música":
             st.header("Dados da música selecionada")
             st.write("Música pesquisada")
             dado = dataset.loc[dataset["track_name"].isin ([keyword])]
