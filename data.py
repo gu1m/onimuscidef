@@ -76,7 +76,7 @@ if indi_geral == "Individual":
             clicado2 = st.button("search.")
             
             if keyword2 is not None and len(str(keyword2)) > 0:
-                if keyword2 is in dado["track_name"]:
+                if keyword2 in dataset["track_name"]:
                     dado_music = dado.loc[dado["track_name"].isin ([keyword2])]
                     st.write(dado_music)
                     
