@@ -40,7 +40,6 @@ selecionado = st.sidebar.selectbox("Pesquisar dados sobre (somente usado no modo
 # se o usuario digitar individual ira aparecer informações individuais 
 if indi_geral == "Individual":
     
-    st.header("Dados Individuais do Artista Selecionado")
     # visualizando o total de musicas e artistas no dataframe
     total_musicas = len(dataset["track_name"])
     data = dataset.drop_duplicates(subset="artist_name", keep='first')
@@ -51,7 +50,7 @@ if indi_geral == "Individual":
     col1.metric("Total de músicas", total_musicas)
     col3.metric("Número de artistas", total_artistas)
     
-     st.header("Dados Individuais do Artista Selecionado")
+    st.header("Dados Individuais do Artista Selecionado")
     
     # colocando area de digitação para o usuario digitar a musica ou o artista para ser analisado
     keyword = st.text_input(selecionado)
