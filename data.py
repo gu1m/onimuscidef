@@ -110,7 +110,7 @@ if indi_geral == "Individual":
                     st.write("O gênero músical usado nesta música foi:")
                     st.write(genre)
             
-            
+            st.markdown("""---""")
             st.subheader("Gráficos e dados gerais do artista")
             
             
