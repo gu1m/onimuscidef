@@ -177,7 +177,7 @@ if indi_geral == "Individual":
                 fig11.style.background_gradient(cmap='cividis')
                 st.write("Matriz de Correlação entre os dados do Dataframe")
                 st.write(fig11)
-            else:
+            elif keyword not in dataset:
                 st.write("Artista não catalogado")
 
 
