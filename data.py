@@ -58,44 +58,47 @@ if indi_geral == "Individual":
     # verificando se há algo escrito no espaço para digitar
     if keyword is not None and len(str(keyword)) > 0:
         # se o usuario escolher para analisar musica 
+        elif keyword not in dataset:
+            st.write("Artista não catalogado")
+            
         if selecionado == "Música":
             st.header("Dados da música selecionada")
             st.write("Música pesquisada")
             dado = dataset.loc[dataset["track_name"].isin ([keyword])]
             st.write(dado)
-       
+        
         # se o usuario escolher para analisar artista
         elif selecionado == "Artista":
-            if keyword in dataset:
-                st.header("Dados Individuais do Artista Selecionado")
+         
+            st.header("Dados Individuais do Artista Selecionado")
 
-                st.write("Artista pesquisado")
-                dado = dataset.loc[dataset["artist_name"].isin ([keyword])]
-                st.write(dado)
+            st.write("Artista pesquisado")
+            dado = dataset.loc[dataset["artist_name"].isin ([keyword])]
+            st.write(dado)
 
-                # realizando as estatisicas do artista 
-                media_pop = round(sts.mean(dado["popularity"]),2)
-                media_ene = round(sts.mean(dado["energy"]),2)
-                moda_mode = sts.mode(dado["mode"])
+            # realizando as estatisicas do artista 
+            media_pop = round(sts.mean(dado["popularity"]),2)
+            media_ene = round(sts.mean(dado["energy"]),2)
+            moda_mode = sts.mode(dado["mode"])
 
-                # deixando a interface mais amigavel
-                col10,col22,col33 = st.columns(3)
-                col10.metric("Média de Popularidade do Artista", media_pop)
-                col22.metric("Média de Energia", media_ene)
-                col33.metric("Escala musical mais usada", moda_mode)
+            # deixando a interface mais amigavel
+            col10,col22,col33 = st.columns(3)
+            col10.metric("Média de Popularidade do Artista", media_pop)
+            col22.metric("Média de Energia", media_ene)
+            col33.metric("Escala musical mais usada", moda_mode)
 
-                col222 = st.columns(1)
+            col222 = st.columns(1)
 
-                # vendo qual é o gênero mais utilizado pelo o artista
-                moda_gen = sts.mode(dado["genres"])
-                st.write("O gênero mais utilizado por este artista é:")
-                st.write(moda_gen)
+            # vendo qual é o gênero mais utilizado pelo o artista
+            moda_gen = sts.mode(dado["genres"])
+            st.write("O gênero mais utilizado por este artista é:")
+            st.write(moda_gen)
 
-                st.markdown("""---""")
+            st.markdown("""---""")
 
-                # espaço para o usuario pesquisar uma música dentro dos dados do artista selecionado
-                keyword2 = st.text_input("Digite o nome da música do artista selecionado")
-                clicado2 = st.button("search ")
+            # espaço para o usuario pesquisar uma música dentro dos dados do artista selecionado
+            keyword2 = st.text_input("Digite o nome da música do artista selecionado")
+            clicado2 = st.button("search ")
 
                 # verificando se há algo escrito no espaço para digitar
                 if keyword2 is not None and len(str(keyword2)) > 0:
@@ -117,68 +120,68 @@ if indi_geral == "Individual":
                         st.write("O gênero músical usado nesta música foi:")
                         st.write(genre)
 
-                st.markdown("""---""")
+                        st.markdown("""---""")
 
-                # Gráficos do artista 
-                st.subheader("Gráficos e dados gerais do artista")
+        # Gráficos do artista 
+        st.subheader("Gráficos e dados gerais do artista")
 
 
 
-                # realizando os graficos individuais do artista
-                data1 = dataset.loc[dataset["artist_name"].isin ([keyword])]
+        # realizando os graficos individuais do artista
+        data1 = dataset.loc[dataset["artist_name"].isin ([keyword])]
 
-                # neste histograma pode-se perceber o numero de musicas em correlação a popularidade
-                fig07 =px.histogram(data1, x="popularity", nbins=15)
+        # neste histograma pode-se perceber o numero de musicas em correlação a popularidade
+        fig07 =px.histogram(data1, x="popularity", nbins=15)
 
-                # neste plotbox pode ver a correlação de tempo ritmico e popularidade 
-                fig08 = px.box(data1, x='time_signature', y='popularity', color='time_signature')
+        # neste plotbox pode ver a correlação de tempo ritmico e popularidade 
+        fig08 = px.box(data1, x='time_signature', y='popularity', color='time_signature')
 
-                # neste plotbox pode ver a correlação de tom e popularidade 
-                fig09 = px.box(data1, x='key', y='popularity', color='key')
+        # neste plotbox pode ver a correlação de tom e popularidade 
+        fig09 = px.box(data1, x='key', y='popularity', color='key')
 
-                #neste plotbox pode ver o modo muscial em correlação com a popularidade 
-                fig10 = px.box(data1, x='mode', y='popularity', color='mode')
+        #neste plotbox pode ver o modo muscial em correlação com a popularidade 
+        fig10 = px.box(data1, x='mode', y='popularity', color='mode')
 
-                # nesta matriz é apresentado a correlação entre os dados do dataframe
-                fig11 = data1.corr(numeric_only = True)
+        # nesta matriz é apresentado a correlação entre os dados do dataframe
+        fig11 = data1.corr(numeric_only = True)
 
-                # aqui colocamos na variavel data1 a musica mais famosa do artista selecionado
-                data1 = data1.nlargest(1, 'popularity')[["track_name","popularity"]]
-                st.write("A música mais famosa do artista selecionado é", data1)
+        # aqui colocamos na variavel data1 a musica mais famosa do artista selecionado
+        data1 = data1.nlargest(1, 'popularity')[["track_name","popularity"]]
+        st.write("A música mais famosa do artista selecionado é", data1)
 
-                st.markdown("""---""")
-                #graficos em relação ao artista
-                col0,col00 = st.columns(2)
+        st.markdown("""---""")
+        #graficos em relação ao artista
+        col0,col00 = st.columns(2)
 
-                # aqui plotamos os graficos de fato no dashboard de forma organizada 
-                with col0:
-                    fig07.update_layout(title='Relação ao número de músicas para cada popularidade')
-                    st.write(fig07)
-                    st.write("""O grafico a seguir mostra a a relação de popularidade que vai de 0 a 100 as musicas do artista""")
+        # aqui plotamos os graficos de fato no dashboard de forma organizada 
+        with col0:
+            fig07.update_layout(title='Relação ao número de músicas para cada popularidade')
+            st.write(fig07)
+            st.write("""O grafico a seguir mostra a a relação de popularidade que vai de 0 a 100 as musicas do artista""")
 
-                with col00:
-                    fig08.update_layout(title='Relação a tempo ritmico e  popularidade')
-                    st.write(fig08)
-                    st.write("""O gráfico a seguir mostra a a relação de popularidade e tempo ritmico(velocidade da música)""")
-                st.markdown("""---""")
-                col99, col90 = st.columns(2)
+        with col00:
+            fig08.update_layout(title='Relação a tempo ritmico e  popularidade')
+            st.write(fig08)
+            st.write("""O gráfico a seguir mostra a a relação de popularidade e tempo ritmico(velocidade da música)""")
+            st.markdown("""---""")
+        
+        col99, col90 = st.columns(2)
 
-                with col99:
-                    fig09.update_layout(title='Relação a key e a popularidade')
-                    st.write(fig09)
-                    st.write("""O gráfico a seguir mostra a a relação de  key e a popularidade""")
+        with col99:
+            fig09.update_layout(title='Relação a key e a popularidade')
+            st.write(fig09)
+            st.write("""O gráfico a seguir mostra a a relação de  key e a popularidade""")
 
-                with col90:
-                    fig10.update_layout(title='Relação entre o mode e a popularidade')
-                    st.write(fig10)
-                    st.write("""O gráfico a seguir mostra a a relação entre o mode e a popularidade""")
-                st.markdown("""---""")   
+        with col90:
+            fig10.update_layout(title='Relação entre o mode e a popularidade')
+            st.write(fig10)
+            st.write("""O gráfico a seguir mostra a a relação entre o mode e a popularidade""")
+            st.markdown("""---""")   
 
-                fig11.style.background_gradient(cmap='cividis')
-                st.write("Matriz de Correlação entre os dados do Dataframe")
-                st.write(fig11)
-            elif keyword not in dataset:
-                st.write("Artista não catalogado")
+        fig11.style.background_gradient(cmap='cividis')
+        st.write("Matriz de Correlação entre os dados do Dataframe")
+        st.write(fig11)
+            
 
 
 # se o usuario escolher geral 
