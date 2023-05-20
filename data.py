@@ -137,7 +137,7 @@ if indi_geral == "Individual":
 elif indi_geral == "Geral":
     # aqui apresentei o head do dataframe para o usuario visualizar os dados que estamos lidando
     st.header("Dados Gerais do Dataframe")
-     st.markdown("""---""")
+    st.markdown("""---""")
     # visualizando o total de musicas e artistas no dataframe
     total_musicas = len(dataset["track_name"])
     data = dataset.drop_duplicates(subset="artist_name", keep='first')
@@ -148,7 +148,7 @@ elif indi_geral == "Geral":
     col1.metric("Total de músicas", total_musicas)
     col3.metric("Número de artistas", total_artistas)
     
-    st.markdown("""---""")
+    
     
     st.write("""Vendo o tipo de dados que serão análisados""")
     st.write(dataset.head())
