@@ -61,10 +61,13 @@ if indi_geral == "Individual":
         # se o usuario escolher para analisar musica
          
         if selecionado == "Música":
-            st.header("Dados da música selecionada")
-            st.write("Música pesquisada")
-            dado = dataset.loc[dataset["track_name"].isin ([keyword])]
-            st.write(dado)
+            if dado.empty:
+                st.subheader("Música não catalogada")
+            else:
+                st.header("Dados da música selecionada")
+                st.write("Música pesquisada")
+                dado = dataset.loc[dataset["track_name"].isin ([keyword])]
+                st.write(dado)
         
         
         # se o usuario escolher para analisar artista
