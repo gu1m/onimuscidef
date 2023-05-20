@@ -112,9 +112,6 @@ if indi_geral == "Individual":
             
             st.subheader("Gráficos e dados gerais do artista")
             
-            # aqui colocamos na variavel data1 a musica mais famosa do artista selecionado
-            data1 = data1.nlargest(1, 'popularity')[["track_name","popularity"]]
-            st.write("A música mais famosa do artista selecionado é", data1)
             
             
             # realizando os graficos individuais do artista
@@ -134,6 +131,10 @@ if indi_geral == "Individual":
             
             # nesta matriz é apresentado a correlação entre os dados do dataframe
             fig11 = data1.corr(numeric_only = True)
+            
+            # aqui colocamos na variavel data1 a musica mais famosa do artista selecionado
+            data1 = data1.nlargest(1, 'popularity')[["track_name","popularity"]]
+            st.write("A música mais famosa do artista selecionado é", data1)
 
             st.markdown("""---""")
             #graficos em relação ao artista
