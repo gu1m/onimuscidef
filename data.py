@@ -90,9 +90,6 @@ if indi_geral == "Individual":
             st.write("O gênero mais utilizado por este artista é:")
             st.write(moda_gen)
             
-            # aqui colocamos na variavel data1 a musica mais famosa do artista selecionado
-            data1 = data1.nlargest(1, 'popularity')[["track_name","popularity"]]
-            st.write("A música mais famosa do artista selecionado é", data1)
             
             keyword2 = st.text_input("Digite o nome da música do artista selecionado")
             clicado2 = st.button("search ")
@@ -113,7 +110,13 @@ if indi_geral == "Individual":
                     st.write(genre)
             
             
-            st.subheader("Gráficos gerais do artista")
+            st.subheader("Gráficos e dados gerais do artista")
+            
+            # aqui colocamos na variavel data1 a musica mais famosa do artista selecionado
+            data1 = data1.nlargest(1, 'popularity')[["track_name","popularity"]]
+            st.write("A música mais famosa do artista selecionado é", data1)
+            
+            
             # realizando os graficos individuais do artista
             data1 = dataset.loc[dataset["artist_name"].isin ([keyword])]
             
