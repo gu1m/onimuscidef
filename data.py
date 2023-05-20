@@ -60,7 +60,7 @@ if indi_geral == "Individual":
     if keyword is not None and len(str(keyword)) > 0:
         # se o usuario escolher para analisar musica
             
-        elif selecionado == "Música":
+        if selecionado == "Música":
             st.header("Dados da música selecionada")
             st.write("Música pesquisada")
             dado = dataset.loc[dataset["track_name"].isin ([keyword])]
