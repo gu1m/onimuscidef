@@ -173,6 +173,7 @@ if indi_geral == "Individual":
             with col00:
                 fig08.update_layout(title='Relação a Tempo ritmico e  Popularidade')
                 st.write(fig08)
+                st.write("""    """)
                 st.markdown("""---""")
 
             col99, col90 = st.columns(2)
@@ -244,9 +245,10 @@ elif indi_geral == "Geral":
         fig.update_layout(title='Correlação entre Tempo ritmico e Popularidade')
         fig.show()
         st.write(fig)
+        st.write("""    """)
         st.markdown("""---""")
+        
     
-    st.markdown("""---""")
     # O Terceiro grafico apresenta a correlação entre o tom e a popularidade
     col03, col04 = st.columns(2)
 
