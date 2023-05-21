@@ -98,23 +98,30 @@ if indi_geral == "Individual":
 
                 # verificando se há algo escrito no espaço para digitar
             if keyword2 is not None and len(str(keyword2)) > 0:
-                # encontrando o nome da música nos dados do Artista
+                 # encontrando o nome da música nos dados do Artista
                 dado_music = dado.loc[dado["track_name"].isin ([keyword2])]
-                st.write(dado_music)
+                
+                # se a música não estiver catalogada
+                if dado_music.empty:
+                    st.subheader("Música não catalogada")
+                
+                # se a música estiver catalogada 
+                else:
+                    st.write(dado_music)
 
-                # pegando as informações da música
-                pop_mu = sts.mode(dado_music["popularity"])
-                dance  = sts.mode(dado_music["danceability"])
-                genre = sts.mode (dado_music["genres"])
+                    # pegando as informações da música
+                    pop_mu = sts.mode(dado_music["popularity"])
+                    dance  = sts.mode(dado_music["danceability"])
+                    genre = sts.mode (dado_music["genres"])
 
-                # deixando as informções mais visiveis para o usúario
-                col111,col222,col333 = st.columns(3)
-                col111.metric("A popularidade desta música é:", pop_mu)
-                col222.metric("A danceabilidade desta música é de:", dance)
+                    # deixando as informções mais visiveis para o usúario
+                    col111,col222,col333 = st.columns(3)
+                    col111.metric("A popularidade desta música é:", pop_mu)
+                    col222.metric("A danceabilidade desta música é de:", dance)
 
-                with col333:
-                    st.write("O gênero músical usado nesta música foi:")
-                    st.write(genre)
+                    with col333:
+                        st.write("O gênero músical usado nesta música foi:")
+                        st.write(genre)
 
             st.markdown("""---""")
 
