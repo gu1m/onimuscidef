@@ -210,17 +210,21 @@ elif indi_geral == "Geral":
     
     
     
-    st.write("""Vendo o tipo de dados que serão análisados""")
+    st.write("""Amostra de Dados""")
     st.write(dataset.head())
     
-    # vendo qual o artista mais popular no dataframe
-    st.write("""Depois de análisar o dataset é possivel perceber que a música mais famosa é a""")
-    dataset.nlargest(1, 'popularity')[['track_name','artist_name',"popularity"]]
+    col999, col000 =st.columns(2)
     
-    # vendo qual gênero músical mais presente no Dataframe
-    moda_genre = sts.mode(dataset["genres"])
-    st.write("O gênero músical mais presente é:")
-    st.write(moda_genre)
+    with col999:
+        # vendo qual o artista mais popular no dataframe
+        st.write("""Música mais popular""")
+        dataset.nlargest(1, 'popularity')[['track_name','artist_name',"popularity"]]
+    
+    with col000:
+        # vendo qual gênero músical mais presente no Dataframe
+        moda_genre = sts.mode(dataset["genres"])
+        st.write("O gênero músical mais presente é:")
+        st.write(moda_genre)
 
     st.markdown("""---""")
     # começando a plotar os graficos
