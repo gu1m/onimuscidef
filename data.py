@@ -167,30 +167,28 @@ if indi_geral == "Individual":
             with col0:
                 fig07.update_layout(title='Relação ao número de músicas para cada popularidade')
                 st.write(fig07)
-                st.write("""O grafico a seguir mostra a a relação de popularidade que vai de 0 a 100 as musicas do artista""")
+                st.write("""O grafico a seguir analisa para cada popularidade o número de músicas presentes nela""")
 
             with col00:
-                fig08.update_layout(title='Relação a tempo ritmico e  popularidade')
+                fig08.update_layout(title='Relação a Tempo ritmico e  Popularidade')
                 st.write(fig08)
-                st.write("""O gráfico a seguir mostra a a relação de popularidade e tempo ritmico(velocidade da música)""")
                 st.markdown("""---""")
 
             col99, col90 = st.columns(2)
 
             with col99:
-                fig09.update_layout(title='Relação a key e a popularidade')
+                fig09.update_layout(title='Relação a Tom e a Popularidade')
                 st.write(fig09)
-                st.write("""O gráfico a seguir mostra a a relação de  key e a popularidade""")
 
             with col90:
-                fig10.update_layout(title='Relação entre o mode e a popularidade')
+                fig10.update_layout(title='Relação entre o Modo musical e a Popularidade')
                 st.write(fig10)
-                st.write("""O gráfico a seguir mostra a a relação entre o mode e a popularidade""")
                 st.markdown("""---""")   
 
             fig11.style.background_gradient(cmap='cividis')
             st.write("Matriz de Correlação entre os dados do Dataframe")
             st.write(fig11)
+            st.write("""Este gráfico apresenta a dependência entre os dados do gráfico em relação a eles mesmos""")
             
 
 
@@ -235,16 +233,16 @@ elif indi_geral == "Geral":
         fig06 =px.histogram(dataset, x="popularity")
         fig06.update_layout(title='Relação ao número de músicas para cada popularidade')
         st.write(fig06)
-        st.write("""O gráfico a seguir mostra a a relação de popularidade que vai de 0 a 100 em relação ao numero de másicas presentes no dataset""")
+        st.write("""O grafico a seguir analisa para cada popularidade o número de músicas presentes nela""")
     
 
     # O segundo grafico apresenta a correlção entre o tempo ritmico e a popularidade da música
     with col02:
         fig = px.box(dataset, x='time_signature', y='popularity', color='time_signature')
-        fig.update_layout(title='Correlação entre time_signature e popularity')
+        fig.update_layout(title='Correlação entre Tempo ritmico e Popularidade')
         fig.show()
         st.write(fig)
-        st.write("""A partir do boxplot apresentado conseguimos ver a relação entre tempo ritmico(velocidade da música) e a Popularidade""")
+       
     
     st.markdown("""---""")
     # O Terceiro grafico apresenta a correlação entre o tom e a popularidade
@@ -252,28 +250,25 @@ elif indi_geral == "Geral":
 
     with col03:
         fig2 = px.box(dataset, x='key', y='popularity', color='key')
-        fig2.update_layout(title='Correlação entre o tom e popularidade')
+        fig2.update_layout(title='Correlação entre o tom e Popularidade')
         fig2.show()
         st.write(fig2)
-        st.write("""A partir do boxplot apresentado conseguimos ver a relação entre o tom da música e a popularidade""")
 
     # O quarto grafico apresenta a correlação entre o mode da música e a popularidade
     with col04:
         fig3 = px.box(dataset, x='mode', y='popularity', color='mode')
-        fig3.update_layout(title='Correlação entre mode e popularity')
+        fig3.update_layout(title='Correlação entre Modo musical e Popularidade')
         fig3.show()
         st.write(fig3)
-        st.write("""A partir do gráfico apresentado podemos ver a correlação entre a Popularidade e a Escala músical """)
     
     st.markdown("""---""")
     col756, col456 = st.columns(2)
     # O quinto grafico apresenta a correlação entre a escala/ e a popularidade
     with col756:
         fig4 = px.box(dataset, x='mode', y='popularity', color='key')
-        fig4.update_layout(title='Correlação entre escala/tom e popularidade')
+        fig4.update_layout(title='Correlação entre Escala/tom e Popularidade')
         fig4.show()
         st.plotly_chart(fig4)
-        st.write("""Este gráfico apresenta a correlação entre escala e tom e popularidade""")
     
     with col456:
         fig11 = dataset.corr(numeric_only = True)
