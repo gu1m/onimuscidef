@@ -245,7 +245,8 @@ elif indi_geral == "Geral":
         fig.update_layout(title='Correlação entre Tempo ritmico e Popularidade')
         fig.show()
         st.write(fig)
-        st.write("""    """)
+        st.write("""                            
+                        """)
         st.markdown("""---""")
         
     
