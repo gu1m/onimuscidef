@@ -168,6 +168,7 @@ if indi_geral == "Individual":
                 fig07.update_layout(title='Relação ao número de músicas para cada popularidade')
                 st.write(fig07)
                 st.write("""O grafico a seguir analisa para cada popularidade o número de músicas presentes nela""")
+                st.markdown("""---""")
 
             with col00:
                 fig08.update_layout(title='Relação a Tempo ritmico e  Popularidade')
@@ -179,6 +180,7 @@ if indi_geral == "Individual":
             with col99:
                 fig09.update_layout(title='Relação a Tom e a Popularidade')
                 st.write(fig09)
+                st.markdown("""---""")
 
             with col90:
                 fig10.update_layout(title='Relação entre o Modo musical e a Popularidade')
