@@ -236,7 +236,7 @@ elif indi_geral == "Geral":
         fig06.update_layout(title='Relação ao número de músicas para cada popularidade')
         st.write(fig06)
         st.write("""O grafico a seguir analisa para cada popularidade o número de músicas presentes nela""")
-    
+        st.markdown("""---""")
 
     # O segundo grafico apresenta a correlção entre o tempo ritmico e a popularidade da música
     with col02:
@@ -244,7 +244,7 @@ elif indi_geral == "Geral":
         fig.update_layout(title='Correlação entre Tempo ritmico e Popularidade')
         fig.show()
         st.write(fig)
-       
+        st.markdown("""---""")
     
     st.markdown("""---""")
     # O Terceiro grafico apresenta a correlação entre o tom e a popularidade
@@ -255,6 +255,7 @@ elif indi_geral == "Geral":
         fig2.update_layout(title='Correlação entre o tom e Popularidade')
         fig2.show()
         st.write(fig2)
+        st.markdown("""---""")
 
     # O quarto grafico apresenta a correlação entre o mode da música e a popularidade
     with col04:
@@ -263,7 +264,7 @@ elif indi_geral == "Geral":
         fig3.show()
         st.write(fig3)
     
-    st.markdown("""---""")
+        st.markdown("""---""")
     col756, col456 = st.columns(2)
     # O quinto grafico apresenta a correlação entre a escala/ e a popularidade
     with col756:
@@ -271,6 +272,7 @@ elif indi_geral == "Geral":
         fig4.update_layout(title='Correlação entre Escala/tom e Popularidade')
         fig4.show()
         st.plotly_chart(fig4)
+        
     
     with col456:
         fig11 = dataset.corr(numeric_only = True)
@@ -278,5 +280,6 @@ elif indi_geral == "Geral":
         st.write("Matriz de Correlação entre os dados do Dataframe")
         st.write(fig11)
         st.write("""Este gráfico apresenta a dependência entre os dados do gráfico em relação a eles mesmos""")
+        
        
     
