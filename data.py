@@ -32,10 +32,6 @@ st.markdown("""---""")
 opcoes = ["Geral","Individual"]
 indi_geral = st.sidebar.selectbox("Escolha quais dados serão analisados", opcoes)
 
-# segundo item da side bar (visualização dos dados músicais ou dos artistas)
-opções = ["Artista", "Música"]
-selecionado = st.sidebar.selectbox("Pesquisar dados sobre (somente usado no modo individual)", opções)
-
 # aqui se o usuario tera que escolher entre Individual ou Geral no primeiro item da sidebar
 
 # se o usuario digitar individual ira aparecer informações individuais 
@@ -59,19 +55,9 @@ if indi_geral == "Individual":
     # verificando se há algo escrito no espaço para digitar
     if keyword is not None and len(str(keyword)) > 0:
         # se o usuario escolher para analisar musica
-        dado = dataset.loc[dataset["track_name"].isin ([keyword])]
-        if selecionado == "Música":
-            if dado.empty:
-                st.subheader("Música não catalogada")
-            else:
-                st.header("Dados da música selecionada")
-                st.write("Música pesquisada")
-                dado = dataset.loc[dataset["track_name"].isin ([keyword])]
-                st.write(dado)
-        
-        
+        dado = dataset.loc[dataset["track_name"].isin ([keyword])]  
         # se o usuario escolher para analisar artista
-        elif selecionado == "Artista":
+        if selecionado == "Artista":
          
             st.header("Dados Individuais do Artista Selecionado")
 
