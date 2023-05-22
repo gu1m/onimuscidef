@@ -93,7 +93,7 @@ if indi_geral == "Individual":
             st.markdown("""---""")
 
             # espaço para o usuario pesquisar uma música dentro dos dados do artista selecionado
-            keyword2 = st.text_input("Digite o nome da música do artista selecionado")
+            keyword2 = st.text_input("Digite o nome de uma música do artista selecionado")
             clicado2 = st.button("search ")
 
                 # verificando se há algo escrito no espaço para digitar
